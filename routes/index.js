@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var Bing = require('node-bing-api')({accKey:'760be1bf3b644b1483fc57ced3a81e20'});
 var searchTerm = require('../models/searchTerm');
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/searchTerms', function(err) {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://Huyjoon1995:Iamlegend3000!@ds135444.mlab.com:35444/image-search-layers', function(err) {
     if (err) throw err;
 });
 app.use(bodyParser.json());
@@ -14,7 +14,7 @@ app.use(cors());
 /* GET home page. */
 /*the * will allow to add any query after that whether they exist or not*/
 app.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 app.get('/api/recentsearchs',function(req,res){
   searchTerm.find({},(err,data) =>{
